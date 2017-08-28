@@ -5,15 +5,18 @@ infobright是一款列式数据库分析开源软件，基于mysql5.1版本进�
 2. 数据压缩比例非常高，相对于innodb减少20-30倍，相对于archive减少3倍，且解压缩速度非常快
 3. 数据计算准确度高
 
+基于列式数据库infobright搭建的在线分析任务平台，架构使用mysql+php模式，支持在线新建自动分析任务，系统自动运算并产生结果
 
 ##infobright安装脚本
 ```Bash
+#config
 info_name="infobright-4.0.7"
 info_rpm_pack="infobright-4.0.7-0-x86_64-ice.rpm"
 
+#download && install
 cd /data/soft/ 
 wget -c https://github.com/JonGates/infobright/raw/master/${info_rpm_pack} -O $info_rpm_pack
-rpm -ivh infobright-4.0.7-0-x86_64-ice.rpm --prefix=/data/webserver/
+rpm -ivh ${info_rpm_pack} --prefix=/data/webserver/
 cd /data/webserver/infobright/ 
 bash ./postconfig.sh
 
@@ -21,11 +24,12 @@ bash ./postconfig.sh
 /etc/init.d/mysqld-ib start
 
 # set user/pass
-echo "set infobright user pass, pass default is empty, please enter"
 mysql-ib -uroot -p -e "INSERT INTO mysql.user (Host, User, Password) VALUES ('%', 'infobright', PASSWORD('infobright'));"
 mysql-ib -uroot -p -e "FLUSH PRIVILEGES;"
+
 ```
 
-
-## track
-基于列式数据库infobright搭建的在线分析任务平台，架构使用mysql+php模式，支持在线新建自动分析任务，系统自动运算并产生结果
+##infobright备份脚本
+```Bash
+使用rsync对数据库进行同步备份，并可模仿主从功能(未完成)
+```
