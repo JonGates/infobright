@@ -7,7 +7,7 @@ infobright是一款列式数据库分析开源软件，基于mysql5.1版本进�
 
 基于列式数据库infobright搭建的在线分析任务平台，架构使用mysql+php模式，支持在线新建自动分析任务，系统自动运算并产生结果
 
-##infobright安装脚本
+## infobright安装脚本
 ```Bash
 #config
 info_name="infobright-4.0.7"
@@ -29,7 +29,7 @@ mysql-ib -uroot -p -e "FLUSH PRIVILEGES;"
 
 ```
 
-##infobright备份脚本
+## infobright备份脚本
 ```Bash
 使用rsync对数据库进行同步备份，并可模仿主从功能(未完成)
 ```
