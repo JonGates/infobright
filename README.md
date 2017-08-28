@@ -23,7 +23,7 @@ bash ./postconfig.sh
 #run
 /etc/init.d/mysqld-ib start
 
-# set user/pass
+#set user/pass
 mysql-ib -uroot -p -e "INSERT INTO mysql.user (Host, User, Password) VALUES ('%', 'infobright', PASSWORD('infobright'));"
 mysql-ib -uroot -p -e "FLUSH PRIVILEGES;"
 
